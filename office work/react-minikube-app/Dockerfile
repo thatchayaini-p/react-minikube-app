@@ -5,13 +5,13 @@ FROM node:18-alpine as build
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY ./office_work/react-minikube-app/package*.json ./
+COPY ./package*.json ./
 
 # Install dependencies inside the container
 RUN npm install
 
 # Copy the rest of the application files
-COPY ./office_work/react-minikube-app/ ./
+COPY ./ ./
 
 # Build the React app
 RUN npm run build

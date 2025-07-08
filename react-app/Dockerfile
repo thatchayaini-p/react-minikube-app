@@ -8,6 +8,7 @@ RUN npm run build
 
 # Stage 2: Serve the built app
 FROM nginx:stable-alpine
+# Escape the space in the path with a backslash
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
